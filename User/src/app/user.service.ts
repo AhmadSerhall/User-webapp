@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(page: number): Observable<any> {
+  getUsers(page: number=1): Observable<any> {
     return this.http.get(`https://reqres.in/api/users?page=${page}`);
   }
 }

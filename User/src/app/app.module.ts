@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component'; 
 import { UserCardComponent } from './user-card/user-card.component';
 import { CommonModule } from '@angular/common';
+import { UserService } from './user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
