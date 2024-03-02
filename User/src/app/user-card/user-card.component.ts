@@ -5,8 +5,8 @@ import { Component,Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.css'
+  styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent {
-  @Input() userData: any;
+  @Input() userData: any ={};
 }
