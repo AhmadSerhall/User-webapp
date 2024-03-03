@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   margin:  16px;
+  position: relative;
   
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -38,4 +39,19 @@
   font-weight: bold;
   /* margin-bottom: 16px; */
   margin-top:3em;
+}
+.pin-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: black; 
+  transition: color 0.3s ease;
+}
+
+.three-dots-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black; 
+  transition: color 0.3s ease;
 }
