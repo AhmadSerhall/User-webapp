@@ -1,0 +1,13 @@
+*{
+    overflow-x: hidden;
+}
+.card-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:3em;
+    margin:2em 2em;
+    width:90vw;
+    height:auto;
+}
