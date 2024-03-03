@@ -9,12 +9,14 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
 import { User } from '../user';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserCardComponent
+    UserCardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

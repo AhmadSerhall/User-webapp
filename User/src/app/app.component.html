@@ -1,20 +1,13 @@
-<!-- <main class="main">
-  <app-header></app-header>
-  <div class="card-container">
-    <ng-container *ngFor="let user of users">
-      <app-user-card [userData]="user"></app-user-card>
-    </ng-container>
-  </div>  
-</main>
-
-<router-outlet></router-outlet> -->
-
 <main class="main">
   <app-header></app-header>
-  <div class="card-container">
+  
+  <div *ngIf="loading" class="loading-container">
+    <app-spinner></app-spinner>
+  </div>
+  
+  <div *ngIf="!loading" class="card-container">
     <app-user-card *ngFor="let user of users" [userData]="user"></app-user-card>
-  </div>  
+  </div>
 </main>
 
-<router-outlet></router-outlet>
 
