@@ -1,17 +1,20 @@
-<main class="main">
-
+<!-- <main class="main">
   <app-header></app-header>
-
   <div class="card-container">
-
-    <div ng-repeat="user in users">
-
-      <app-user-card [userData]="users"></app-user-card>
-
-    </div>
-
+    <ng-container *ngFor="let user of users">
+      <app-user-card [userData]="user"></app-user-card>
+    </ng-container>
   </div>  
+</main>
 
+<router-outlet></router-outlet> -->
+
+<main class="main">
+  <app-header></app-header>
+  <div class="card-container">
+    <app-user-card *ngFor="let user of users" [userData]="user"></app-user-card>
+  </div>  
 </main>
 
 <router-outlet></router-outlet>
+

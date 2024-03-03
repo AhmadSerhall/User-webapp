@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
+import { User } from '../user';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { UserService } from './user.service';
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
