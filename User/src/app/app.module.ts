@@ -11,6 +11,8 @@ import { UserService } from './user.service';
 import { User } from '../user';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardAnimationModule } from '../card-animation.module';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CardAnimationModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

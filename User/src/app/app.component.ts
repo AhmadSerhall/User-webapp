@@ -7,6 +7,9 @@ import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardAnimationModule } from '../card-animation.module';
+import { cardAnimation } from '../animations';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +18,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [
-    trigger('cardAnimation', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(-50px)' }),
-          stagger('100ms', [
-            animate('500ms ease-out', style({ opacity: 1, transform: 'none' }))
-          ])
-        ], { optional: true })
-      ])
-    ])
+    cardAnimation
   ]
 })
 export class AppComponent implements OnInit{
