@@ -7,12 +7,25 @@ import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner/spinner.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  animations: [
+    trigger('cardAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(-50px)' }),
+          stagger('100ms', [
+            animate('500ms ease-out', style({ opacity: 1, transform: 'none' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class AppComponent implements OnInit{
   loading=false;

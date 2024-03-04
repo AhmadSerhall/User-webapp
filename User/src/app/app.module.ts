@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
 import { User } from '../user';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
