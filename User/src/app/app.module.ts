@@ -12,8 +12,8 @@ import { User } from '../user';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardAnimationModule } from '../card-animation.module';
-
-
+import { UserDetailsModule } from '../user-details.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +28,9 @@ import { CardAnimationModule } from '../card-animation.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CardAnimationModule,
+    UserDetailsModule,
+    RouterModule
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

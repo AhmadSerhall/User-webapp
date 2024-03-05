@@ -1,4 +1,3 @@
-// animations.ts
 import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 
 export const cardAnimation = trigger('cardAnimation', [

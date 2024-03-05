@@ -10,11 +10,15 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardAnimationModule } from '../card-animation.module';
 import { cardAnimation } from '../animations';
+import { Router } from '@angular/router';
+import { UserDetailsModule } from '../user-details.module';
+// import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent],
+  imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent,UserDetailsModule,AppRoutingModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [
@@ -24,7 +28,7 @@ import { cardAnimation } from '../animations';
 export class AppComponent implements OnInit{
   loading=false;
   users: any[] = []; 
-  constructor(private userService: UserService, private http: HttpClient) {}
+  constructor(private userService: UserService, private http: HttpClient,private router: Router) {}
 
   ngOnInit() {
     this.loading = true;
@@ -42,4 +46,7 @@ export class AppComponent implements OnInit{
       );
     }, 2000);
   }
+  // navigateToDetails(id: number) {
+  //   this.router.navigate(['/user-details', id]);
+  // }
 }
