@@ -1,18 +1,22 @@
 import { Component,inject, OnInit } from '@angular/core';
+import { Route ,RouterLink,RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import  {AppRoutingModule}  from '../app-routing.module';
+import { UserService } from '../user.service';
+import { Location } from '@angular/common';
+ 
 
 @Component({
   selector: 'app-user-details',
-  // standalone:true,
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css'],
-  // imports:[CommonModule]
 })
 export class UserDetailsComponent implements OnInit {
   id: number | null = null;
-
-  constructor(private route: ActivatedRoute) {}
+  
+  constructor(private route: ActivatedRoute, private userService: UserService,
+    private location: Location) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

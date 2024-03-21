@@ -12,13 +12,14 @@ import { CardAnimationModule } from '../card-animation.module';
 import { cardAnimation } from '../animations';
 import { Router } from '@angular/router';
 import { UserDetailsModule } from '../user-details.module';
-// import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import  {AppRoutingModule}  from './app-routing.module';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent,UserDetailsModule,AppRoutingModule],
+  imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent,UserDetailsModule,RouterModule,AppRoutingModule,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [
@@ -35,7 +36,6 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
       this.userService.getUsers().subscribe(
         (response: any) => {
-          console.log('API Response:', response);
           this.users = response.data;
           this.loading = false;
         },
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
       );
     }, 2000);
   }
-  // navigateToDetails(id: number) {
-  //   this.router.navigate(['/user-details', id]);
-  // }
+  navigateToDetails(id: number) {
+    this.router.navigate(['/user-details', id]);
+  }
 }
