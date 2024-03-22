@@ -1,22 +1,17 @@
-import { Component,inject, OnInit } from '@angular/core';
-import { Route ,RouterLink,RouterModule} from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import  {AppRoutingModule}  from '../app-routing.module';
 import { UserService } from '../user.service';
 import { Location } from '@angular/common';
- 
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css'],
+  styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  id: number | null = null;
-  
-  constructor(private route: ActivatedRoute, private userService: UserService,
-    private location: Location) {}
+  userData: any;
+
+  constructor(private route: ActivatedRoute, private userService: UserService, private location: Location) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -24,8 +19,15 @@ export class UserDetailsComponent implements OnInit {
       console.log('Route parameters:', params); 
       console.log('Extracted ID:', idParam);
       if (idParam !== null) {
-        this.id = +idParam; 
-        console.log('User ID:', this.id);
+        const userId = +idParam;
+        this.userService.getUserById(userId).subscribe(
+          (response: any) => {
+            this.userData = response.data;
+          },
+          (error) => {
+            console.error('Error fetching user data:', error);
+          }
+        );
       } else {
         console.error('User ID not found in route parameters');
       }

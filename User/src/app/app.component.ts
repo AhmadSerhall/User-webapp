@@ -19,34 +19,34 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,UserCardComponent,CommonModule,SpinnerComponent,UserDetailsModule,RouterModule,AppRoutingModule,RouterLink],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [
     cardAnimation
   ]
 })
-export class AppComponent implements OnInit{
-  loading=false;
-  users: any[] = []; 
-  constructor(private userService: UserService, private http: HttpClient,private router: Router) {}
+export class AppComponent {
+  // loading=false;
+  // users: any[] = []; 
+  // constructor(private userService: UserService, private http: HttpClient,private router: Router) {}
 
-  ngOnInit() {
-    this.loading = true;
-    setTimeout(() => {
-      this.userService.getUsers().subscribe(
-        (response: any) => {
-          this.users = response.data;
-          this.loading = false;
-        },
-        (error) => {
-          console.error('Error fetching users:', error);
-          this.loading = false;
-        }
-      );
-    }, 2000);
-  }
-  navigateToDetails(id: number) {
-    this.router.navigate(['/user-details', id]);
-  }
+  // ngOnInit() {
+  //   this.loading = true;
+  //   setTimeout(() => {
+  //     this.userService.getUsers().subscribe(
+  //       (response: any) => {
+  //         this.users = response.data;
+  //         this.loading = false;
+  //       },
+  //       (error) => {
+  //         console.error('Error fetching users:', error);
+  //         this.loading = false;
+  //       }
+  //     );
+  //   }, 2000);
+  // }
+  // navigateToDetails(id: number) {
+  //   this.router.navigate(['/user-details', id]);
+  // }
 }

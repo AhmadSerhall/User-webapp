@@ -13,4 +13,8 @@ export class UserService {
   getUsers(page: number=1): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}?page=${page}`);
   }
+  getUserById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+  
 }
