@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class UserCardComponent {
   @Input() userData: any ;
+  // isUserPresent: boolean = false;
   constructor(private router: Router) {}
 
   navigateToDetails(id: number) {
