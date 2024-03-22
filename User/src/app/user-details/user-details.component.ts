@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Location } from '@angular/common';
 
@@ -11,18 +11,16 @@ import { Location } from '@angular/common';
 export class UserDetailsComponent implements OnInit {
   userData: any;
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private location: Location) {}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private location: Location) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
-      console.log('Route parameters:', params); 
-      console.log('Extracted ID:', idParam);
       if (idParam !== null) {
         const userId = +idParam;
         this.userService.getUserById(userId).subscribe(
           (response: any) => {
-            this.userData = response.data;
+            this.userData = response.data; 
           },
           (error) => {
             console.error('Error fetching user data:', error);
@@ -32,5 +30,9 @@ export class UserDetailsComponent implements OnInit {
         console.error('User ID not found in route parameters');
       }
     });
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
   }
 }

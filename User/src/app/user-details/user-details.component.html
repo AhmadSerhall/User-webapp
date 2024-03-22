@@ -1,19 +1,20 @@
-<!-- <h1>Welcome</h1>
-<div>
-  <p>User ID: {{ id }}</p>
-</div> -->
-<h1>Welcome</h1>
 <!-- <pre>{{ userData | json }}</pre> -->
 <div *ngIf="userData">
+  <button class="back-button" (click)="navigateToHome()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <div class="user-card-container">
   <div class="user-card">
     <div class="avatar">
       <img [src]="userData.avatar" alt="User Avatar">
     </div>
     <div class="user-info">
-      <p>{{ userData.first_name }} {{ userData.last_name }}</p>
+      <p>Id: {{userData.id}}</p>
+      <p>Name:  {{ userData.first_name }} {{ userData.last_name }}</p>
       <p>Email: {{ userData.email }}</p>
     </div>
   </div>
+</div>
 </div>
 
 <router-outlet></router-outlet>
